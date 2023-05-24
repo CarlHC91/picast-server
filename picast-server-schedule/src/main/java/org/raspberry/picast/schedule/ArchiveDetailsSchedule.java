@@ -47,7 +47,7 @@ public class ArchiveDetailsSchedule {
 					directoryDetailsVO.setFilePath(fileDetails.getAbsolutePath());
 					directoryDetailsVO.setFileName(fileDetails.getName());
 
-					if (directoryDetailsService.existsOneByFilePath(directoryDetailsVO.getFilePath())) {
+					if (!directoryDetailsService.existsOneByFilePath(directoryDetailsVO)) {
 						directoryDetailsVO = directoryDetailsService.createOne(directoryDetailsVO);
 
 						updateOne(directoryDetailsVO);
@@ -61,7 +61,7 @@ public class ArchiveDetailsSchedule {
 					archiveDetailsVO.setFileName(fileDetails.getName());
 					archiveDetailsVO.setFileSize(fileDetails.length());
 
-					if (archiveDetailsService.existsOneByFilePath(archiveDetailsVO.getFilePath())) {
+					if (!archiveDetailsService.existsOneByFilePath(archiveDetailsVO)) {
 						archiveDetailsVO = archiveDetailsService.createOne(archiveDetailsVO);
 					}
 				}
