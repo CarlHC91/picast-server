@@ -1,8 +1,6 @@
 package org.raspberry.picast.schedule;
 
 import java.io.File;
-import java.io.Serializable;
-import java.util.Date;
 
 import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
 import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
@@ -17,7 +15,7 @@ public class ArchiveDetailsSchedule {
 
 	@Autowired
 	private ArchiveDetailsService archiveDetailsService;
-	
+
 	@Autowired
 	private DirectoryDetailsService directoryDetailsService;
 

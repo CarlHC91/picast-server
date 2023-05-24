@@ -7,7 +7,6 @@ import java.util.List;
 import org.raspberry.picast.dao.repositories.ArchiveDetailsDao;
 import org.raspberry.picast.exception.ServiceException;
 import org.raspberry.picast.model.entities.ArchiveDetails;
-import org.raspberry.picast.model.entities.DirectoryDetails;
 import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
 import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
 import org.springframework.beans.factory.annotation.Autowired;
