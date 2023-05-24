@@ -1,4 +1,4 @@
-package org.raspberry.picast.services;
+package org.raspberry.picast.service;
 
 import java.util.ArrayList;
 import java.util.List;

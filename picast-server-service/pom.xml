@@ -8,7 +8,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>picast-server-services</artifactId>
+	<artifactId>picast-server-service</artifactId>
 	<packaging>jar</packaging>
 
 	<dependencies>
@@ -26,6 +26,6 @@
 	</dependencies>
 
 	<build>
-		<finalName>picast-server-services-${project.version}</finalName>
+		<finalName>picast-server-service-${project.version}</finalName>
 	</build>
 </project>

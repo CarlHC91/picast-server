@@ -1,11 +1,11 @@
-package org.raspberry.picast.services;
+package org.raspberry.picast.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.raspberry.picast.dao.repositories.ArchiveDetailsDao;
-import org.raspberry.picast.exceptions.ServiceException;
+import org.raspberry.picast.exception.ServiceException;
 import org.raspberry.picast.model.entities.ArchiveDetails;
 import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
 import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;

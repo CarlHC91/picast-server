@@ -1,4 +1,4 @@
-package org.raspberry.picast.exceptions;
+package org.raspberry.picast.exception;
 
 public class ServiceException extends RuntimeException {
 
