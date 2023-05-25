@@ -37,10 +37,10 @@
 
 	<modules>
 		<module>picast-server-app</module>
-		<module>picast-server-dto</module>
-		<module>picast-server-iface</module>
+		<module>picast-server-dao</module>
 		<module>picast-server-model</module>
-		<module>picast-server-repository</module>
+		<module>picast-server-pojos</module>
+		<module>picast-server-schedule</module>
 		<module>picast-server-service</module>
 	</modules>
 </project>
