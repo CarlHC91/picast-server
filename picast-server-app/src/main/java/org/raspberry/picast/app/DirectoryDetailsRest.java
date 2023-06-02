@@ -3,6 +3,10 @@ package org.raspberry.picast.app;
 import java.util.List;
 
 import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
+import org.raspberry.picast.pojos.operations.directorydetails.CreateOne_IN;
+import org.raspberry.picast.pojos.operations.directorydetails.CreateOne_OUT;
+import org.raspberry.picast.pojos.operations.directorydetails.DeleteOne_IN;
+import org.raspberry.picast.pojos.operations.directorydetails.DeleteOne_OUT;
 import org.raspberry.picast.pojos.operations.directorydetails.FindAllByParent_IN;
 import org.raspberry.picast.pojos.operations.directorydetails.FindAllByParent_OUT;
 import org.raspberry.picast.service.DirectoryDetailsService;
@@ -28,6 +32,29 @@ public class DirectoryDetailsRest {
 		findAllByParent_OUT.setDirectoryDetailsList(directoryDetailsListVO);
 
 		return ResponseEntity.ok(findAllByParent_OUT);
+	}
+	
+	@PostMapping(produces = "application/json", consumes = "application/json", value = "/directoryDetails/createOne")
+	public ResponseEntity<CreateOne_OUT> createOne(RequestEntity<CreateOne_IN> requestEntityVO) {
+		CreateOne_IN createOne_IN = requestEntityVO.getBody();
+
+		DirectoryDetailsVO directoryDetailsVO = directoryDetailsService.createOne(createOne_IN.getDirectoryDetails());
+
+		CreateOne_OUT createOne_OUT = new CreateOne_OUT();
+		createOne_OUT.setDirectoryDetails(directoryDetailsVO);
+
+		return ResponseEntity.ok(createOne_OUT);
+	}
+	
+	@PostMapping(produces = "application/json", consumes = "application/json", value = "/directoryDetails/deleteOne")
+	public ResponseEntity<DeleteOne_OUT> deleteOne(RequestEntity<DeleteOne_IN> requestEntityVO) {
+		DeleteOne_IN deleteOne_IN = requestEntityVO.getBody();
+
+		directoryDetailsService.deleteOne(deleteOne_IN.getDirectoryDetails());
+
+		DeleteOne_OUT deleteOne_OUT = new DeleteOne_OUT();
+
+		return ResponseEntity.ok(deleteOne_OUT);
 	}
 
 }

@@ -4,6 +4,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
+import org.raspberry.picast.pojos.operations.archivedetails.CreateOne_IN;
+import org.raspberry.picast.pojos.operations.archivedetails.CreateOne_OUT;
+import org.raspberry.picast.pojos.operations.archivedetails.DeleteOne_IN;
+import org.raspberry.picast.pojos.operations.archivedetails.DeleteOne_OUT;
 import org.raspberry.picast.pojos.operations.archivedetails.FindAllByParent_IN;
 import org.raspberry.picast.pojos.operations.archivedetails.FindAllByParent_OUT;
 import org.raspberry.picast.service.ArchiveDetailsService;
@@ -32,6 +36,29 @@ public class ArchiveDetailsRest {
 		findAllByParent_OUT.setArchiveDetailsList(archiveDetailsListVO);
 
 		return ResponseEntity.ok(findAllByParent_OUT);
+	}
+	
+	@PostMapping(produces = "application/json", consumes = "application/json", value = "/archiveDetails/createOne")
+	public ResponseEntity<CreateOne_OUT> createOne(RequestEntity<CreateOne_IN> requestEntityVO) {
+		CreateOne_IN createOne_IN = requestEntityVO.getBody();
+
+		ArchiveDetailsVO archiveDetailsVO = archiveDetailsService.createOne(createOne_IN.getArchiveDetails());
+
+		CreateOne_OUT createOne_OUT = new CreateOne_OUT();
+		createOne_OUT.setArchiveDetails(archiveDetailsVO);
+
+		return ResponseEntity.ok(createOne_OUT);
+	}
+	
+	@PostMapping(produces = "application/json", consumes = "application/json", value = "/archiveDetails/deleteOne")
+	public ResponseEntity<DeleteOne_OUT> deleteOne(RequestEntity<DeleteOne_IN> requestEntityVO) {
+		DeleteOne_IN deleteOne_IN = requestEntityVO.getBody();
+
+		archiveDetailsService.deleteOne(deleteOne_IN.getArchiveDetails());
+
+		DeleteOne_OUT deleteOne_OUT = new DeleteOne_OUT();
+
+		return ResponseEntity.ok(deleteOne_OUT);
 	}
 
 	@GetMapping(value = "/archiveDetails/downloadOneById")
