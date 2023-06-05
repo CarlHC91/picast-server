@@ -15,7 +15,6 @@ import org.raspberry.auth.pojos.entities.UserAuthorityVO;
 import org.raspberry.auth.pojos.entities.UserDetailsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -42,15 +41,15 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 			if (userDetailsVO != null) {
 				List<GrantedAuthority> authorityList = new ArrayList<>();
 				
+				SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(tokenApi, null, authorityList));
+				
 				for (UserAuthorityVO userAuthorityVO : userAuthorityIface.findAllByUser(userDetailsVO)) {
 					GrantedAuthority authority = new SimpleGrantedAuthority(userAuthorityVO.getName());
 					
 					authorityList.add(authority);
 				}
 				
-				Authentication authentication = new UsernamePasswordAuthenticationToken(tokenApi, null, authorityList);
-				
-				SecurityContextHolder.getContext().setAuthentication(authentication);
+				SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(tokenApi, null, authorityList));
 			}
 		}
 
