@@ -14,6 +14,12 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.raspberry</groupId>
+			<artifactId>auth-server-iface</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.raspberry</groupId>
 			<artifactId>picast-server-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>

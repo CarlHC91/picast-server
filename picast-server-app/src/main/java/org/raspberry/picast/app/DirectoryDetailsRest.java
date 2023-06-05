@@ -13,6 +13,8 @@ import org.raspberry.picast.service.DirectoryDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,6 +24,7 @@ public class DirectoryDetailsRest {
 	@Autowired
 	private DirectoryDetailsService directoryDetailsService;
 
+	@PreAuthorize("hasAuthority('/picast/directoryDetails/findAllByParent')")
 	@PostMapping(produces = "application/json", consumes = "application/json", value = "/directoryDetails/findAllByParent")
 	public ResponseEntity<FindAllByParent_OUT> findAllByParent(RequestEntity<FindAllByParent_IN> requestEntityVO) {
 		FindAllByParent_IN findAllByParent_IN = requestEntityVO.getBody();
@@ -34,6 +37,7 @@ public class DirectoryDetailsRest {
 		return ResponseEntity.ok(findAllByParent_OUT);
 	}
 	
+	@PreAuthorize("hasAuthority('/picast/directoryDetails/createOne')")
 	@PostMapping(produces = "application/json", consumes = "application/json", value = "/directoryDetails/createOne")
 	public ResponseEntity<CreateOne_OUT> createOne(RequestEntity<CreateOne_IN> requestEntityVO) {
 		CreateOne_IN createOne_IN = requestEntityVO.getBody();
@@ -46,6 +50,7 @@ public class DirectoryDetailsRest {
 		return ResponseEntity.ok(createOne_OUT);
 	}
 	
+	@PreAuthorize("hasAuthority('/picast/directoryDetails/deleteOne')")
 	@PostMapping(produces = "application/json", consumes = "application/json", value = "/directoryDetails/deleteOne")
 	public ResponseEntity<DeleteOne_OUT> deleteOne(RequestEntity<DeleteOne_IN> requestEntityVO) {
 		DeleteOne_IN deleteOne_IN = requestEntityVO.getBody();

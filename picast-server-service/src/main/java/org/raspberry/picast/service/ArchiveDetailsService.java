@@ -102,7 +102,7 @@ public class ArchiveDetailsService {
 		archiveDetailsDao.delete(archiveDetails);
 	}
 
-	public UrlResource downloadOneById(ArchiveDetailsVO archiveDetailsVO) {
+	public UrlResource downloadOne(ArchiveDetailsVO archiveDetailsVO) {
 		ArchiveDetails archiveDetails = archiveDetailsDao.findOneById(archiveDetailsVO.getIdArchive());
 		if (archiveDetails == null) {
 			throw new ServiceException("ArchiveDetails not exists");

@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +28,7 @@ public class ArchiveDetailsRest {
 	@Autowired
 	private ArchiveDetailsService archiveDetailsService;
 
+	@PreAuthorize("hasAuthority('/picast/archiveDetails/findAllByParent')")
 	@PostMapping(produces = "application/json", consumes = "application/json", value = "/archiveDetails/findAllByParent")
 	public ResponseEntity<FindAllByParent_OUT> findAllByParent(RequestEntity<FindAllByParent_IN> requestEntityVO) {
 		FindAllByParent_IN findAllByParent_IN = requestEntityVO.getBody();
@@ -38,6 +41,7 @@ public class ArchiveDetailsRest {
 		return ResponseEntity.ok(findAllByParent_OUT);
 	}
 	
+	@PreAuthorize("hasAuthority('/picast/archiveDetails/createOne')")
 	@PostMapping(produces = "application/json", consumes = "application/json", value = "/archiveDetails/createOne")
 	public ResponseEntity<CreateOne_OUT> createOne(RequestEntity<CreateOne_IN> requestEntityVO) {
 		CreateOne_IN createOne_IN = requestEntityVO.getBody();
@@ -50,6 +54,7 @@ public class ArchiveDetailsRest {
 		return ResponseEntity.ok(createOne_OUT);
 	}
 	
+	@PreAuthorize("hasAuthority('/picast/archiveDetails/deleteOne')")
 	@PostMapping(produces = "application/json", consumes = "application/json", value = "/archiveDetails/deleteOne")
 	public ResponseEntity<DeleteOne_OUT> deleteOne(RequestEntity<DeleteOne_IN> requestEntityVO) {
 		DeleteOne_IN deleteOne_IN = requestEntityVO.getBody();
@@ -61,12 +66,13 @@ public class ArchiveDetailsRest {
 		return ResponseEntity.ok(deleteOne_OUT);
 	}
 
-	@GetMapping(value = "/archiveDetails/downloadOneById")
-	public ResponseEntity<UrlResource> downloadOneById(@RequestParam("id_archive") Long idArchive) throws IOException {
+	@PreAuthorize("hasAuthority('/picast/archiveDetails/downloadOne')")
+	@GetMapping(value = "/archiveDetails/downloadOne")
+	public ResponseEntity<UrlResource> downloadOne(@RequestParam("id_archive") Long idArchive) throws IOException {
 		ArchiveDetailsVO archiveDetailsVO = new ArchiveDetailsVO();
 		archiveDetailsVO.setIdArchive(idArchive);
 
-		UrlResource UrlResourceVO = archiveDetailsService.downloadOneById(archiveDetailsVO);
+		UrlResource UrlResourceVO = archiveDetailsService.downloadOne(archiveDetailsVO);
 
 		return ResponseEntity.ok(UrlResourceVO);
 	}
