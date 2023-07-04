@@ -9,10 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.raspberry.auth.iface.UserAuthorityIface;
-import org.raspberry.auth.iface.UserSessionIface;
-import org.raspberry.auth.pojos.entities.UserAuthorityVO;
-import org.raspberry.auth.pojos.entities.UserDetailsVO;
+import org.raspberry.auth.iface.user.UserAuthorityIface;
+import org.raspberry.auth.iface.user.UserSessionIface;
+import org.raspberry.auth.pojos.entities.user.UserAuthorityVO;
+import org.raspberry.auth.pojos.entities.user.UserDetailsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
