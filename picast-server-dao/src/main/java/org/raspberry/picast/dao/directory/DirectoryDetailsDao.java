@@ -1,8 +1,8 @@
-package org.raspberry.picast.dao.repositories;
+package org.raspberry.picast.dao.directory;
 
 import java.util.List;
 
-import org.raspberry.picast.model.entities.DirectoryDetails;
+import org.raspberry.picast.model.directory.DirectoryDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

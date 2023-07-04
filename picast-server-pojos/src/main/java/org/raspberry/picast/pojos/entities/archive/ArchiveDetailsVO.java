@@ -1,4 +1,4 @@
-package org.raspberry.picast.pojos.entities;
+package org.raspberry.picast.pojos.entities.archive;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

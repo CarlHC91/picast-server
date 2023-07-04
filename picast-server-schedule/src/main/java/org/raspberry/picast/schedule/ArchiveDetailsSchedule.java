@@ -2,10 +2,10 @@ package org.raspberry.picast.schedule;
 
 import java.io.File;
 
-import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
-import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
-import org.raspberry.picast.service.ArchiveDetailsService;
-import org.raspberry.picast.service.DirectoryDetailsService;
+import org.raspberry.picast.pojos.entities.archive.ArchiveDetailsVO;
+import org.raspberry.picast.pojos.entities.directory.DirectoryDetailsVO;
+import org.raspberry.picast.service.archive.ArchiveDetailsService;
+import org.raspberry.picast.service.directory.DirectoryDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

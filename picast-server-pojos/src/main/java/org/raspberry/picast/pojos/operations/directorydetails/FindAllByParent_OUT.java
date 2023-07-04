@@ -2,7 +2,7 @@ package org.raspberry.picast.pojos.operations.directorydetails;
 
 import java.util.List;
 
-import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
+import org.raspberry.picast.pojos.entities.directory.DirectoryDetailsVO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

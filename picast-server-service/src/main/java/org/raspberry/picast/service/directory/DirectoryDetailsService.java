@@ -1,12 +1,12 @@
-package org.raspberry.picast.service;
+package org.raspberry.picast.service.directory;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.raspberry.picast.dao.repositories.DirectoryDetailsDao;
+import org.raspberry.picast.dao.directory.DirectoryDetailsDao;
 import org.raspberry.picast.exception.ServiceException;
-import org.raspberry.picast.model.entities.DirectoryDetails;
-import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
+import org.raspberry.picast.model.directory.DirectoryDetails;
+import org.raspberry.picast.pojos.entities.directory.DirectoryDetailsVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

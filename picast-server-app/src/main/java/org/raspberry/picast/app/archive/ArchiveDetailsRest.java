@@ -1,22 +1,21 @@
-package org.raspberry.picast.app;
+package org.raspberry.picast.app.archive;
 
 import java.io.IOException;
 import java.util.List;
 
-import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
+import org.raspberry.picast.pojos.entities.archive.ArchiveDetailsVO;
 import org.raspberry.picast.pojos.operations.archivedetails.CreateOne_IN;
 import org.raspberry.picast.pojos.operations.archivedetails.CreateOne_OUT;
 import org.raspberry.picast.pojos.operations.archivedetails.DeleteOne_IN;
 import org.raspberry.picast.pojos.operations.archivedetails.DeleteOne_OUT;
 import org.raspberry.picast.pojos.operations.archivedetails.FindAllByParent_IN;
 import org.raspberry.picast.pojos.operations.archivedetails.FindAllByParent_OUT;
-import org.raspberry.picast.service.ArchiveDetailsService;
+import org.raspberry.picast.service.archive.ArchiveDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

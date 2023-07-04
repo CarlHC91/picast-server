@@ -1,6 +1,6 @@
 package org.raspberry.picast.pojos.operations.archivedetails;
 
-import org.raspberry.picast.pojos.entities.ArchiveDetailsVO;
+import org.raspberry.picast.pojos.entities.archive.ArchiveDetailsVO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

@@ -1,4 +1,4 @@
-package org.raspberry.picast.model.entities;
+package org.raspberry.picast.model.archive;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

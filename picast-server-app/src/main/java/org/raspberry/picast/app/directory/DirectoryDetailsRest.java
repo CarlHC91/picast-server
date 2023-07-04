@@ -1,20 +1,19 @@
-package org.raspberry.picast.app;
+package org.raspberry.picast.app.directory;
 
 import java.util.List;
 
-import org.raspberry.picast.pojos.entities.DirectoryDetailsVO;
+import org.raspberry.picast.pojos.entities.directory.DirectoryDetailsVO;
 import org.raspberry.picast.pojos.operations.directorydetails.CreateOne_IN;
 import org.raspberry.picast.pojos.operations.directorydetails.CreateOne_OUT;
 import org.raspberry.picast.pojos.operations.directorydetails.DeleteOne_IN;
 import org.raspberry.picast.pojos.operations.directorydetails.DeleteOne_OUT;
 import org.raspberry.picast.pojos.operations.directorydetails.FindAllByParent_IN;
 import org.raspberry.picast.pojos.operations.directorydetails.FindAllByParent_OUT;
-import org.raspberry.picast.service.DirectoryDetailsService;
+import org.raspberry.picast.service.directory.DirectoryDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
